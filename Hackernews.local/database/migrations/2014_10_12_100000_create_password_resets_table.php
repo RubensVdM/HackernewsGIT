@@ -6,13 +6,14 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePasswordResetsTable extends Migration
 {
-    /**
+    /** 
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
+        Schema::defaultStringLength(191);
         Schema::create('password_resets', function (Blueprint $table) {
             $table->string('email')->index();
             $table->string('token');
