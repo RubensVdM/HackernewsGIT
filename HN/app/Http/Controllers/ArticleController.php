@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\ArticleRequest;
@@ -39,7 +40,7 @@ class ArticleController extends Controller
     public function store(ArticleRequest $request)
     {
         Article::create($request->all());
-        return redirect()->route('article.index')->with('message', 'article " " created succesfully');
+        return redirect()->route('article.index')->with('message', 'The article has been created successfully');
     }
 
     /**
@@ -74,7 +75,7 @@ class ArticleController extends Controller
     public function update(ArticleRequest $request, Article $article)
     {
         $article->update($request->all());
-        return redirect()->route('article.index')->with('message', 'item has been added good');
+        return redirect()->route('article.index')->with('message', 'The article has been edited successfully');
     }
 
     /**
@@ -86,6 +87,6 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect()->route('article.index')->with('message', 'item has been deleted');
+        return redirect()->route('article.index')->with('message', 'The article has been deleted successfully');
     }
 }
